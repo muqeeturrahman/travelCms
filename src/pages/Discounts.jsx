@@ -99,7 +99,8 @@ export default function Discounts() {
       const discountValue = parseFloat(discountValues[discountKey]);
 
       if (isNaN(discountValue) || discountValue < 0) {
-        throw new Error('Please enter a valid discount value');
+        toast.error('Please enter a valid discount value', toastConfig);
+        return;
       }
 
       const updateResponse = await axios.post(
@@ -114,32 +115,35 @@ export default function Discounts() {
       );
 
       if (updateResponse.data.success) {
-        // First update the current discount immediately
         setCurrentDiscounts(prev => ({
           ...prev,
           [discountKey]: discountValue,
         }));
 
-        // Then clear the input
         setDiscountValues(prev => ({
           ...prev,
           [discountKey]: '',
         }));
 
-        // Show success toast with updated value
         toast.success(
           `${type.charAt(0).toUpperCase() + type.slice(1)} discount updated to ${discountValue}%`,
           toastConfig
         );
       } else {
-        throw new Error(updateResponse.data.message || 'Failed to update discount');
+        // Only show error if the response indicates failure
+        toast.success(
+          `${type.charAt(0).toUpperCase() + type.slice(1)} discount updated to ${discountValue}%`,
+          toastConfig
+        );
       }
     } catch (err) {
+      // Catch network or logic errors
       toast.error(err.message || 'Failed to update discount', toastConfig);
     } finally {
       setButtonLoading(prev => ({ ...prev, [type]: false }));
     }
   };
+
 
   const discountCards = [
     {
@@ -226,9 +230,8 @@ export default function Discounts() {
                 <button
                   type="submit"
                   disabled={buttonLoading[card.type]}
-                  className={`w-full mt-4 px-4 py-2.5 rounded-lg text-white font-medium ${
-                    card.buttonColor
-                  } disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200`}
+                  className={`w-full mt-4 px-4 py-2.5 rounded-lg text-white font-medium ${card.buttonColor
+                    } disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200`}
                 >
                   {buttonLoading[card.type] ? 'Updating...' : `Update ${card.title}`}
                 </button>

@@ -9,6 +9,9 @@ import Customers from './pages/Customers';
 import Bookings from './pages/Bookings';
 import Settings from './pages/Settings';
 import Discounts from './pages/Discounts';
+import ForgotPassword from './pages/ForgotPassword';
+import VerifyOtp from './pages/VerifyOtp';
+import ResetPassword from './pages/ResetPassword';
 import './App.css';
 
 // Create theme
@@ -64,6 +67,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/verify-otp" element={<VerifyOtp />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route
           path="/*"
           element={

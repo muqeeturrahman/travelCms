@@ -141,6 +141,7 @@ export default function Login() {
               type="button"
               className="text-blue-600 hover:text-blue-700 text-sm font-medium"
               disabled={loading}
+              onClick={() => navigate('/forgot-password')}
             >
               Forgot password?
             </button>
@@ -170,4 +171,4 @@ export default function Login() {
       </div>
     </div>
   );
-} 
+}
