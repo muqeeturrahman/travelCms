@@ -26,7 +26,7 @@ import {
 } from '@mui/icons-material';
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:3008/api';
+const API_BASE_URL = 'https://travey-backend.vercel.app/api';
 
 const menuItems = [
   { text: 'Dashboard', icon: <Dashboard />, path: '/' },

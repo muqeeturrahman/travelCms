@@ -17,7 +17,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:3008/api';
+const API_BASE_URL = 'https://travey-backend.vercel.app/api';
 
 export default function Header({ open }) {
   const theme = useTheme();

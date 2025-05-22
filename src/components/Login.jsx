@@ -4,7 +4,7 @@ import { FlightTakeoff, Visibility, VisibilityOff } from '@mui/icons-material';
 import axios from 'axios';
 
 // API base URL
-const API_BASE_URL = 'http://localhost:3008/api';
+const API_BASE_URL = 'https://travey-backend.vercel.app/api';
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);

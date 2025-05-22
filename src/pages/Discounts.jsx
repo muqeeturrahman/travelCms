@@ -9,7 +9,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const API_BASE_URL = 'http://localhost:3008/api';
+const API_BASE_URL = 'https://travey-backend.vercel.app/api';
 
 // Custom toast configuration
 const toastConfig = {
