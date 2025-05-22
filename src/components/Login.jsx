@@ -156,17 +156,6 @@ export default function Login() {
           >
             {loading ? 'Signing In...' : 'Sign In'}
           </button>
-
-          <div className="text-center text-sm text-gray-600">
-            Don't have an account?{' '}
-            <button
-              type="button"
-              className="text-blue-600 hover:text-blue-700 font-medium"
-              disabled={loading}
-            >
-              Sign up
-            </button>
-          </div>
         </form>
       </div>
     </div>
